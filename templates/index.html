@@ -11,6 +11,7 @@ PROYECTO INTERDISCIPLINARIO II
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
 	</head>
 	<body>
 
@@ -190,7 +191,9 @@ pasos:</p>
 <p>- Eliminación de manchas en la imagen</p>
 <p>- </p></h4>
 						<ul class="actions">
-							<li><a href="" class="button alt">Inserte imagen a analizar</a></li>
+							<!-- <li><a href="" class="button alt">Inserte imagen a analizar</a></li> -->
+							<!-- <form action="/action_page.php"> <input type="file" id="myFile" name="filename"> <input type="submit"> </form>  -->
+							<li><form action="/action_page.php"> <label for="img">Selecciona imagen a analizar:</label> <input type="file" id="img" name="img" accept="image/jpg, image/jpeg, image/png"> <input type="submit"> 
 						</ul>
 					</div>
 					<div class="postnav">
