@@ -1,12 +1,7 @@
 from flask import Flask, render_template, url_for, request  
-<<<<<<< HEAD
 import numpy as np
 import cv2
 import countingCode
-=======
-import cv2
-import numpy as np
->>>>>>> 0a3064d84225034ddf706087dcaf02d3b2d89fc8
 
 app = Flask(__name__)
 
