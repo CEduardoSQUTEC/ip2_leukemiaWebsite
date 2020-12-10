@@ -47,9 +47,9 @@ def countingImage(imagen):
     titles = ["Imagen Binarizada"]
 
     # Creamos un kernel para la dilatación
-    kernel=np.ones((12,12),np.uint8)
+    kernel = np.ones((12,12),np.uint8)
     # Aca se aplica la dilatación a la imagen
-    dilatar=cv2.dilate(th2, kernel)
+    dilatar = cv2.dilate(th2, kernel)
     dilatar_not = cv2.bitwise_not(dilatar)
     titleas = ["Imagen dilatada"]
 
@@ -59,9 +59,8 @@ def countingImage(imagen):
     plt.xticks([]), plt.yticks([])
     plt.show()
 
-    img2_fg = cv2.bitwise_and(ii3,dilatar_not)
+    img2_fg = cv2.bitwise_and(ii3,dilatar_not) # Apliación de la multiplicación para eliminar las tinturaciones.
     titles = ["Imagen TOTAL"]
-
 
     label_imgx = label(img2_fg)
     regionsx = regionprops(label_imgx)
@@ -91,8 +90,8 @@ def countingImage(imagen):
 
     propsx = regionprops_table(label_imgx, properties=('area','centroid',
                                                      'orientation',
-                                                     'major_axis_length',
-                                                     'minor_axis_length'))
+                                                     'major_axis_length', # longitud maxima.
+                                                     'minor_axis_length')) # longitud minima.
 
     dOrderx=sorted(propsx["area"])
 
@@ -115,7 +114,6 @@ def countingImage(imagen):
         mask_sizes = sizes > ELI
         mask_sizes[0] = 0
         coins_cleaned = mask_sizes[label_objects]        
-
 
     plt.plot(),plt.imshow(img2_fg,'gray')
     plt.title("Imagen binarizada con ruido"), plt.xticks(), plt.yticks()
