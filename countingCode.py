@@ -112,7 +112,8 @@ def countingImage(imagen):
 
     ax.axis((0, 700,504, 0))
     plt.title("")
-    plt.show()
+    plt.savefig("static/img/processedImage.png")
+    # plt.show()
 
     props = regionprops_table(label_img, properties=('area','centroid',
                                                      'orientation',
@@ -131,7 +132,7 @@ def countingImage(imagen):
     GRojo=0
     Leuco=0
     for cor in centroyx:
-       if coins_cleaned2[cor[0]][cor[1]] == 1:
+       if coins_cleaned2[round(cor[0])][round(cor[1])] == 1:
            GRojo += 1
        else:
            Leuco += 1
