@@ -136,6 +136,18 @@ def countingImage(imagen):
            GRojo += 1
        else:
            Leuco += 1
-    print("La cantidad de Globulos Rojos es: ", GRojo)
-    print("La cantidad de Leucocitos es: ", Leuco)
+
+    Orden=dOrderx.astype(int)
+    for i in range(len(Orden)):
+        if Orden[i]/mediaa >= 1.5:
+            GRojo +=1
+        elif Orden[i]/mediaa >= 2.5:
+            GRojo +=2
+        elif Orden[i]/mediaa >= 3.5:
+            Grojo =+3
+        elif Orden[i]/mediaa >= 4:
+            GRojo =+5
+
+    print("La cantidad de Globulos Rojos total es: ", GRojo)
+    print("La cantidad de Leucocitos es: ", Leuco) 
     return (GRojo, Leuco)
